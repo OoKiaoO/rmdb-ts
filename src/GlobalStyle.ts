@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h3 {
       font-size: 1.1rem;
-      font-width: 600;
+      font-weight: 600;
     }
 
     p {
