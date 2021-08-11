@@ -15,7 +15,7 @@ import { useMovieFetch } from '../hooks/useMovieFetch';
 import NoImage from '../images/no_image.jpg';
 
 
-const Movie = () => {
+const Movie: React.FC = () => {
   const { movieId } = useParams(); // it needs to be called exactly the same as the param included inside App.js > Route path component!!
   const { state: movie, loading, error } = useMovieFetch(movieId);  // destructuring properties exported from hook & renaming state
 

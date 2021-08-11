@@ -1,17 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 // Syles
 import { Wrapper, Content  } from './Grid.styles';
+// Types
+type Props = {
+  header: string,
+}
 
-const Grid = ({ header, children }) => (
+const Grid: React.FC<Props> = ({ header, children }) => (  // no need ot specify 'children' in props cause is a type built into React
   <Wrapper >
     <h1>{header}</h1>
     <Content>{children}</Content>
   </Wrapper>
 )
-
-Grid.propTypes = {
-  header: PropTypes.string,
-}
 
 export default Grid;

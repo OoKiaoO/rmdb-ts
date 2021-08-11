@@ -9,13 +9,13 @@ import Spinner from './Spinner';
 import SearchBar from './SearchBar';
 import Button from './Button';
 // API
-import API from '../API';
+// import API from '../API';
 // Custom Hooks
 import { useHomeFetch } from '../hooks/useHomeFetch';
 // Image
 import NoImage from '../images/no_image.jpg';
 
-const Home = () => {
+const Home: React.FC = () => {
   const {
     state,
     loading,

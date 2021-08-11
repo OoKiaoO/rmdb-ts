@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 // Images
 import searchIcon from '../../images/search-icon.svg';
 //Styles
 import { Wrapper, Content } from './SearchBar.styles';
+// Types
+type Props = {
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>  // type taken from Home.js
+}
 
 // making SearchBar a controlled component => the input value is going to control the component's state: input value == component's state
-const SearchBar = ({ setSearchTerm }) => {
+const SearchBar: React.FC<Props> = ({ setSearchTerm }) => {
   const [ state, setState ] = useState('');
   const initial = useRef(true);
 
@@ -40,10 +43,6 @@ const SearchBar = ({ setSearchTerm }) => {
       </Content>
     </Wrapper>
   );
-}
-
-SearchBar.propTypes = {
-  callback: PropTypes.func
 }
 
 export default SearchBar;

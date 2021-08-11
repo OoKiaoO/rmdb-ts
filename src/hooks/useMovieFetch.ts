@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import API from '../API';
+import API, { Movie, Cast, Crew } from '../API';
 import { isPersistedState } from '../helpers';
+// types
+export type MovieState = Movie & { actors: Cast[], directors: Crew[] };
+// merging types that were manually renamed
 
-export const useMovieFetch = (movieId) => {
-  const [state, setState] = useState({}); // empty object as default value
+export const useMovieFetch = (movieId: string) => {
+  const [state, setState] = useState<MovieState>({} as MovieState); // empty object as default value
   const [loading, setLoading] = useState(true); // default to true cause this component is going to start be fetching data for the movie
   const [error, setError] = useState(false);
 

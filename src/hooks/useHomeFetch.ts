@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 // no need to import React as we are not returning any JSX
-import API from '../API';
+import API, { Movie } from '../API';
 // helpers
 import { isPersistedState } from '../helpers';
 
 //creating an initial State => useful for when you will need to reset it
 const initialState = {
   page: 0,
-  results: [],
+  results: [] as Movie[],  // we tell typescript to interpret state results as imported Movie array
   total_pages: 0,
   total_results: 0
 };
@@ -21,7 +21,7 @@ export const useHomeFetch = () => {
   // creating an additional state to trigger the load more button functionality by using useEffect
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  const fetchMovies = async (page, searchTerm = "") => {
+  const fetchMovies = async (page: number, searchTerm = "") => {  // searchTerm is automatically interpreted as string cause we def it so
     try {
       setError(false);
       setLoading(true);
@@ -77,5 +77,3 @@ export const useHomeFetch = () => {
   // no need to specify state: state to return state itself if it has the same name
   // you can can choose to return only the setter for a specific state
 }
-
-// export default useHomeFetch;
